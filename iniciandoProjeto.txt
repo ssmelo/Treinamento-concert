@@ -1,0 +1,1 @@
+ir no arquivo de configuraçao angular.json e mudar o inline-template e inline-style para false.

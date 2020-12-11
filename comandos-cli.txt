@@ -1,0 +1,5 @@
+CRIANDO CLI
+-npm i -g @angular/cli
+
+INICIANDO NOVO PROJETO - FORMA MINIMALISTA
+-ng new nome-do-projeto --minimal

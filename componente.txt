@@ -1,0 +1,12 @@
+COMPONENTES
+
+Componentes são organizações visuais.
+Cada componente tem todas as funcionalidades visuais de uma parte visual da aplicação.
+1. HTML
+2. CSS
+3. TypeScript
+
+Quando um componente é inicializado possui uma tag de referencia.
+Ex: <app-home></app-home>
+
+Cada classe possui um decorator: @Component. Basicamente declara a classe como um component.

@@ -1,0 +1,52 @@
+-Angular é um framework JavaScrpit desenvolvido pelo Google para criação de aplicações Web SPA baseada em componentes.
+
+
+-Versões do Angular:
+1. AngularJS: Primeira versão(legada).
+2. Angular: Segunda versão. Totalmente refatorada.
+3. Já estamos na versão 11. Porém depois do Angular 2 a estrutura foi pouco alterada.
+
+
+-Command Line Interface
+Comandos para gerenciamento da aplicação Angular.
+
+-npm i -g @angular/cli
+-ng new minha-app
+
+
+-TypeScript
+Linguagem craida pela Microsoft que é um superset do JS.
+Linguagem fortemente tipada. POO.
+O código escrito em TypeScript é compilado para JavaScript para o browser interpretar a aplicação.
+
+-Árvore de componentes
+1. Temos no topo da hierarquia de componentes o MyApp
+2. A partir do componente pai, temos várias ramificações como por exemplo para um Header e para um Content.
+3. A aplicação então é dividida por itens como navBar, contentTitle, buttons, etc.
+
+
+-Inicialização
+O main.ts chama o AppModule.
+*A aplicação Angular é modularizada, ou seja, módulos podem ser visiveis para fora do modulo ou nao. Encapsulamento.
+
+O primeiro componente a ser carregado é o localizado no comano bootstrap: O AppComponent.
+
+-Anatomia do modulo
+O modulo possui 5 atributos essenciais.
+1. Declarations: Declaração dos componentes, diretivas e pipes.
+2. Exports: Componentes, diretivas e pipes que serão exportadas para fora do módulo.
+3. Imports: Importações para dentro do módulo, internas ou externas.
+4. Providers: Declarações dos Services.
+5. Bootstrap: Atributo que faz com que o componente principal seja carregado. Presente apenas no módulo principal.
+
+
+Funções dos arquivos
+-O arquivo main.ts é a porta de entrada da aplicação. O modulo AppModule é chamado por ele.
+-O App Module nada mais é do que o modulo principal.
+-Dentro do app.module.ts esta o atributo bootstrap que denoma o componente a ser reenderizado.
+
+
+Pastas uteis
+-Pasta assets: contem arquivos de anexo, imagens, videos, etc.
+-Pasta environments: possui as vaiaveis de ambiente de deenvolviment e produçao.
+-Temos tambem o arquivo index.html,onde toda a aplicaçao é montada. Ele possui uma tag de <app-root> que provem do seletor que identifica o app-component.
