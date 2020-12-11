@@ -1,0 +1,38 @@
+Altera a aparêcia e o comportamento de um elemento, componente ou outra diretiva. -- muda estilo e vincular uma ação a um elemento
+
+Utiliza o decorator @Director. Faz a classe possuir alguns comportamentos.
+--- código diretivas de comportamento e aparencia
+@Directive({
+    selector: '[appRed]'
+})
+export class RedDirective{
+
+    constructor(el: ElementRef){
+        el.nativeElement.style.color + '#e35e6b';
+    }
+}
+
+--- tag
+<i class="material-icons v-middle" appRed>
+    favorite
+</i>
+
+
+--- Diretivas estruturais
+Altera o layout adicionando e removendo elementos da DOM
+é caracterizada pelo asterisco: *
+
+-- código
+<form *ngIf="product" class="product-form">
+    
+</form>
+----- o codigo acima acima suprime ou exibe elementos dos formulario baseado no if.
+
+<ul>
+    <li *ngFor="let product of products">
+        {{ product.name }}
+    </li>
+</ul>
+------ o codigo acima acrescenta novos elementos. Faz um laço for com base no numero de repetiçoes do for e cria <li> de acordo com o numero de repeticoes.
+
+

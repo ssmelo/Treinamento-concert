@@ -1,0 +1,24 @@
+PROGRAMAÇÃO REATIVA
+
+REACTIVE X -- FRAMEWORK PARA PROGRAMAÇÃO REATIVA -- POSSUI IMPLEMENTAÇÕES PARA VARIAS LINGUAGENS
+Padrão de projeto onde quando algo precisa acontecer para usa açao ser tomada
+Padrão mais usado na web. (callback, promise, observables...)
+
+-Padrão orientado a eventos.
+
+SUBJECT: QUEM CONSEGUE MONITORAR QUANDO UM EVENTO ACONTECE. --> DETECTA O EVENTO E NOTIFICA PARA O OBSERVER.
+OBSERVER: OS CODIGOS INTERESSADOS NO EVENTO. --> PRECISA SE REGISTRAR NO SUBJECT PARA MOSTRAR INTERESSE NO EVENTO.
+
+Exemplo:
+-- código 
+criarNoBackend(produto: Produto): Observable<Produto> {
+    return this.http.post<Produto>(this.url, produto);
+}
+
+criarProduto(): void {
+    this.criarNoBackend(this.produto).subscribe(( => {
+        this.exibirMensagem("Salvo com sucesso");
+    }))
+}
+
+--- no odigo acima, é feita uma chama htpp que retorna um observable, uma chamada assicrona. Quando a requisiçao retornar uma resposta, chamamos o metodo subscribe que efetua uma operaçao a partir do evento de resposta.

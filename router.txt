@@ -1,0 +1,18 @@
+Navegação da aplicação
+
+ROUTER OUTLET
+Define o componente a ser reederizado baseado na rota acessada.
+
+--- codigo
+html
+<a routerLink="/products">
+Produtos
+</a>
+
+const routes: Routes = [
+    {
+        path: "products",
+        component: ProductCrudComponent
+    },
+    ...
+}]

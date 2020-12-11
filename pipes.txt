@@ -1,0 +1,13 @@
+Altera o valor de uma variavel atraves de uma funçao.
+
+Ex:
+<p>
+    O vencimento é
+    {{ produto.vencimento | date }}  ---> a barra indica que o produto.vencimento vai ser aplicado ao metodo date e formatado.
+</p>
+
+Ex:
+<p>
+    O vencimento é
+    {{ produto.vencimento | date: 'fulldate' | uppercase }} ---> o produto passa para uma formatação de data com um parametro 'fulldate' na funçao e depois e formatado na funçao uppercase
+</p>

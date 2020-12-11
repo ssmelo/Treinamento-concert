@@ -1,0 +1,55 @@
+Comunicação entre o template html e o arquivo typescript
+
+PROPERTY BINDING
+-- código
+html
+<table [dataSource]="products">
+</table>
+
+typescript
+export class ProductReadComponent implements OnInit{
+
+    products: Product[];
+}
+--- os colchetes associam a string "products" com um atributo do componente e salva em dataSource.
+
+
+EVENT BINDING
+Associa um evento/ação no html com o typescript.
+
+--- codigo
+html
+<button mat-raised-button (click)="createProduct()" color="primary>
+    Salvar
+</button>
+
+typescript
+export class ProductCreateComponent implements OnInit {
+
+    createProduct(): void {
+        ...
+    }
+}
+
+
+ONE WAY DATA BINDING
+Passagem direta de um elemento do componente para o html.
+Alteraçoes feitas no typescript refletem no html.
+
+Ex:
+html
+<input [value]="nome">
+
+typescript
+nome: string  // nome = Ana ---> vai alterar no html
+
+
+TWO WAY DATA BINDING
+As aleteraçoes sao feitas tanto do typescript em direçao ao html, quanto no html em direçao ao typescript.
+
+Ex:
+html
+<input [(ngModel)]="nome">
+
+typescript
+nome: string;

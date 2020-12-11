@@ -1,0 +1,73 @@
+São classes que têm como principal objetivo organizar e compartilhar metodos e dados entre componentes.
+
+Diz respeito a separaçao de regras.
+
+Normalmente no componente temos uma responsabilidade de chamada em backend. Dessa forma, separamos a funçao na visual com os services, como por exemplo o acesso ao backend.
+
+Services podem possui mais de um metodo, porem todos precisam ter um mesmo contexto de forma que ele trate apenas um conjunto de logicas especificas.
+
+-- para criar services
+ng g s services/product
+
+O service possui um decorator @Injectable que permite que ela seja injetada para outras classes. Injeção de dependência.
+o atributo providedIn se refere a quem vai a injeçao.
+no caso do provider root:
+Apenas há uma instanciação de um ProductService.
+O Angular é responsavel pela instanciação.
+
+-- codigo
+@Injectable({
+    providenIn: "root"
+})
+
+export class ProductService {
+    ...
+}
+
+
+INJEÇÃO DE DEPENDÊNCIA 
+É um padrão no qual a classe recebe as dependências de uma fonte externa ao invés de criar por conta própria.
+
+Exemplo sem injeção de dependência
+class Carro {
+
+    motor: motor
+
+    constructor() {
+        this.motor = new Motor();
+    }
+}
+
+Depois a classe motor sofre uma alteração.
+class Motor {
+    cilindrada: number
+
+    constructor(cilindridada: number) {
+        this.cilindrada = cilindrada
+    }
+}
+
+--- NESSE CASO ACIMA, HÁ UMA FRAGILIDADE NO SISTEMA. QUALQUER ALTERAÇÃO NA CLASSE MOTOR GERA UM UMA ALTERAÇÃO NA CLASSE CARRO. OU SEJA, FICAM ALTAMENTE ACOPLADOS.
+
+
+Exemplo COM injeção de dependência
+class Carro {
+    motor: Motor
+    
+    constructor(motor: Motor) {
+        this.motor = motor
+    }
+}
+
+class Motor {
+
+    // igual a motor anterior
+}
+
+--- NESSE EXEMPLO, UMA CLASSE EXTERNA QUE JÁ SABE A "IMPLEMENTAÇÃO" DO MOTOR, PASSARIA O MOTOR JÁ CONSTRUIDO PARA O CARRO.
+
+--- NO CASO DO ANGULAR, O FRAMEWORK É RESPONSAVEL, POR EXEMPLO, POR JÁ PASSAR UMA DEPENDENDIA DE SERVICE PARA UM COMPONENTE.
+
+-- O ANGULAR INSTANCIA UM OBJETO SERVICE COM O DECORATOR @INJECTABLE, DEPOIS ELE INSTANCIA UM OBJETO DO COMPONENTE PASSANDO COMO PARAMETRO O SERVICE A SER UTILIZADO NAQUELE COMPONENTE.
+
+-- O PROVIDER ROOT BASICAMENTE É O ANGULAR-MODULE QUE FAZ TODAS AS INJEÇOES DE DEPENDENCIAS CRIANDO UMA UNICA INSTANCIAÇÃO DE CADA OBJETO INJECTABLE PARA TODO O MODULO.
